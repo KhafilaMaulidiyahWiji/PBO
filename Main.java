@@ -1,90 +1,43 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package FifthWeeks;
 
 /**
  *
  * @author Khafila Maulidiyah W
  */
-
-// Kelas Induk (Superclass)
-abstract class BangunDatar {
-    abstract double luas();
-    abstract double keliling();
-}
-
-// Kelas Turunan Persegi
-class Persegi extends BangunDatar {
-    double sisi;
-
-    Persegi(double sisi) {
-        this.sisi = sisi;
-    }
-
-    @Override
-    double luas() {
-        return sisi * sisi;
-    }
-
-    @Override
-    double keliling() {
-        return 4 * sisi;
+// Kelas induk
+class Main {
+    void mainkan() {
+        System.out.println("Memainkan alat musik...");
     }
 }
 
-// Kelas Turunan Lingkaran
-class Lingkaran extends BangunDatar {
-    double r;
-
-    Lingkaran(double r) {
-        this.r = r;
-    }
-
+// Kelas turunan Gitar
+class Gitar extends Main {
     @Override
-    double luas() {
-        return Math.PI * r * r;
-    }
-
-    @Override
-    double keliling() {
-        return 2 * Math.PI * r;
+    void mainkan() {
+        System.out.println("Bunyi gitar: Jreng... Jreng...");
     }
 }
 
-// Kelas Turunan Segitiga
-class Segitiga extends BangunDatar {
-    double alas, tinggi;
-
-    Segitiga(double alas, double tinggi) {
-        this.alas = alas;
-        this.tinggi = tinggi;
-    }
-
+// Kelas turunan Piano
+class Piano extends Main {
     @Override
-    double luas() {
-        return 0.5 * alas * tinggi;
-    }
-
-    @Override
-    double keliling() {
-        // Misalkan segitiga sama kaki untuk contoh
-        double sisiMiring = Math.sqrt((alas / 2) * (alas / 2) + tinggi * tinggi);
-        return alas + 2 * sisiMiring;
+    void mainkan() {
+        System.out.println("Bunyi piano: Pling... Pling...");
     }
 }
 
-// Kelas Main
-public class Main {
+// Kelas utama
+public class AlatMusik {
     public static void main(String[] args) {
-        BangunDatar persegi = new Persegi(4);
-        BangunDatar lingkaran = new Lingkaran(7);
-        BangunDatar segitiga = new Segitiga(6, 8);
+        Main a1 = new Gitar();
+        Main a2 = new Piano();
 
-        System.out.println("Luas Persegi: " + persegi.luas());
-        System.out.println("Keliling Persegi: " + persegi.keliling());
-
-        System.out.println("Luas Lingkaran: " + lingkaran.luas());
-        System.out.println("Keliling Lingkaran: " + lingkaran.keliling());
-
-        System.out.println("Luas Segitiga: " + segitiga.luas());
-        System.out.println("Keliling Segitiga: " + segitiga.keliling());
+        a1.mainkan();
+        a2.mainkan();
     }
 }
